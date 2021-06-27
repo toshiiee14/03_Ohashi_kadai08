@@ -12,7 +12,6 @@ try {
 
 //２．SQL文を用意(データ取得：SELECT)
 $stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
-
 //3. 実行
 $status = $stmt->execute();
 
@@ -28,9 +27,14 @@ if($status==false) {
   //Selectデータの数だけ自動でループしてくれる while文 fetch:文字を取り出す
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
-    $view .= "<p>";
-    $view .= h($result ['indate'])."\t".'本名:'.h($result['name'])."\t".'感想:'.h($result['comment'])."\t".'リンク:'.h($result['url']);
-    $view .= "<p>";
+    $view .= '<p>';
+    $view .= '<a href="detail.php?id=' . $result['id'] . '">';
+    $view .= $result["indate"] . "：" . $result["name"];
+    $view .= '</a>';
+    $view .= '<a href="delete.php?id=' . $result['id'] . '">';//追記
+    $view .= '  [削除]';//追記
+    $view .= '</a>';//追記
+    $view .= '</p>';
   }
 }
 ?>
@@ -42,7 +46,8 @@ if($status==false) {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ブックマーク一覧</title>
-<style>div{padding: 10px;font-size:16px;}</style>
+<link rel="stylesheet" href="css/range.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body id="main">
 <!-- Head[Start] -->
@@ -59,10 +64,9 @@ if($status==false) {
 
 <!-- Main[Start] -->
 <div>
-    <div class="container jumbotron"><?=$view?></div>
-  
-
-
+    <div class="container jumbotron"><?= $view ?></div>
+    <a href="detail.php"></a>
+            
 </div>
 <!-- Main[End] -->
 
