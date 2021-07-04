@@ -1,4 +1,14 @@
 <?php
+//SESSIONスタート
+session_start();
+
+//関数を呼び出す
+require_once('funcs.php');
+
+//ログインチェック
+loginCheck();
+$user_name = $_SESSION['name'];
+
 //insert.phpの処理を持ってくる
 ///1. POSTデータ取得
 $name   = $_POST["name"];
@@ -15,7 +25,7 @@ $pdo = db_conn();
 $stmt = $pdo->prepare( "UPDATE gs_bm_table SET name = :name, url = :url, comment = :comment, indate = sysdate() WHERE id = :id;" );
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->bindValue(':url', $url, PDO::PARAM_STR);
-$stmt->bindValue(':comment', $comment, PDO::PARAM_INT);
+$stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $status = $stmt->execute(); //実行
 //４．データ登録処理後

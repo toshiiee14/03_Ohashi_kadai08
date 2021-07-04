@@ -40,24 +40,23 @@ if ($status == false) {
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">データ一覧</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="bm_list_viewonly.php">トップページ</a></div>
             </div>
         </nav>
     </header>
 
     <!-- method, action, 各inputのnameを確認してください。  -->
-    <form method="POST" action="bm_update_view.php">
+    <form method="POST" action="bm_list_viewonly.php">
         <div class="jumbotron">
             <fieldset>
             <legend>ブックマーク詳細</legend>
-                <label>名前：<input type="text" name="name" value="<?= $result['name'] ?>"></label><br>
-                <label>Email：<input type="text" name="url" value="<?= $result['url'] ?>"></label><br>
-                <label><textarea name="comment" rows="4" cols="40"><?= $result['comment'] ?></textarea></label><br>
+                <label>名前： <p><?= $result['name'] ?></p> </label><br>
+                <label>Email： <p> <?= $result['url'] ?></p> </label><br>
+                <label>感想: <p> <?= $result['comment'] ?></p></label><br>
                 <input type="hidden" name="id" value="<?= $result['id'] ?>">
-                <input type="submit" value="更新">
             </fieldset>
         </div>
-    </>
+    </form>
 </body>
 
 </html>

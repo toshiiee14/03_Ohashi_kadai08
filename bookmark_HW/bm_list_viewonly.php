@@ -1,15 +1,9 @@
 <?php
-
 //SESSIONスタート
 session_start();
 
 //関数を呼び出す
 require_once('funcs.php');
-
-//ログインチェック
-loginCheck();
-$user_name = $_SESSION['name'];
-$kanri_flg = $_SESSION['kanri_flg'];
 
 //1.  DB接続します
 try {
@@ -37,14 +31,10 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .= '<p>';
-    $view .= '<a href="detail.php?id=' . $result['id'] . '">';
+    $view .= '<a href="detail_viewonly.php?id=' . $result['id'] . '">';
     $view .= $result["indate"] . "：" . $result["name"];
     $view .= '</a>';
-    if ($kanri_flg == 1) {  
-    $view .= '<a href="delete.php?id=' . $result['id'] . '">';//追記
-    $view .= '  [削除]';//追記
     $view .= '</a>';//追記
-    };
     $view .= '</p>';
   }
 }
@@ -67,8 +57,6 @@ if($status==false) {
     <div class="container-fluid">
       <div class="navbar-header">
       <a class="navbar-brand" href="index.php">トップページへ</a>
-      <p class="navbar-brand">(サイトオーナーのみ削除可能)</p>
-      <p class="navbar-brand"> <?= $user_name?> </p>
       </div>
     </div>
   </nav>
