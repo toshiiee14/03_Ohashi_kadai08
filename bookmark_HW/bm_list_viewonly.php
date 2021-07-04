@@ -8,7 +8,7 @@ require_once('funcs.php');
 //1.  DB接続します
 try {
   //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=gs_bm;charset=utf8;host=localhost','root','root');
+  $pdo = db_conn();
 } catch (PDOException $e) {
   exit('DBConnectError:'.$e->getMessage());
 }

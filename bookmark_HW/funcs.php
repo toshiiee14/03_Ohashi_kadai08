@@ -11,14 +11,15 @@ function h($str)
 function db_conn()
 {
     try {
-        $db_name = "gs_bm";    //データベース名
-        $db_id   = "root";      //アカウント名
-        $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。
-        $db_host = "localhost"; //DBホスト
+        // $db_name = "gs_bm";    //データベース名
+        // $db_id   = "root";      //アカウント名
+        // $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。
+        // $db_host = "localhost"; //DBホスト
 
-
-
-        $pdo = new PDO('mysql:dbname=' . $db_name . ';charset=utf8;host=' . $db_host, $db_id, $db_pw);
+        // sakura server用（gitにアップするときは削除する！）
+      
+        //Password:MAMP='root',XAMPP=''
+        $pdo = new PDO('mysql:dbname='.$db_name.';charset=utf8;host='.$db_host,$db_id,$db_pw);
         return $pdo;//ここを追加！！
     } catch (PDOException $e) {
         exit('DB Connection Error:' . $e->getMessage());
