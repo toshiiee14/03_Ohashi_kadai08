@@ -1,4 +1,15 @@
 <?php
+//SESSIONスタート
+session_start();
+
+//関数を呼び出す
+require_once('funcs.php');
+
+//ログインチェック
+loginCheck();
+$user_name = $_SESSION['name'];
+$kanri_flg = $_SESSION['kanri_flg'];
+
 // 1. POSTデータ取得
 //$name = filter_input( INPUT_GET, ","name" ); //こういうのもあるよ
 //$email = filter_input( INPUT_POST, "email" ); //こういうのもあるよ
@@ -10,7 +21,7 @@ $comment = $_POST ['comment'];
 // 2. DB接続します 基本このワンパターンしか無い
 try {
     //Password:MAMP='root',XAMPP=''
-    $pdo = new PDO('mysql:dbname=gs_bm;charset=utf8;host=localhost','root','root');
+    $pdo = db_conn();
   } catch (PDOException $e) {
     exit('DBConnectError:'.$e->getMessage());
   }
