@@ -26,7 +26,7 @@
 <form method="POST" action="insert.php">
   <div class="contents">
    <fieldset>
-    <legend>新規登録</legend>
+    <legend>新規登録 (ユーザー登録又はログイン必要)</legend>
      <label>書籍名：<input type="text" name="name"></label><br>
      <label>書籍URL：<input type="text" name="url"></label><br>
      <label>書籍コメント：<br>
