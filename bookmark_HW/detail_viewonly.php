@@ -17,8 +17,10 @@ $view = '';
 if ($status == false) {
     sql_error($status);
 } else {
-    $result = $stmt->fetch();
-}
+    $result = $stmt->fetch(PDO::FETCH_BOTH);
+    $viewimg .= '<img src = "upload/'.$result["img"].'"></p>';
+    };
+
 ?>
 
 <!-- 以下はindex.phpのHTMLをまるっと持ってくる -->
@@ -40,7 +42,7 @@ if ($status == false) {
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="bm_list_viewonly.php">トップページ</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="bm_list_viewonly.php">記事一覧</a></div>
             </div>
         </nav>
     </header>
@@ -49,13 +51,18 @@ if ($status == false) {
     <form method="POST" action="bm_list_viewonly.php">
         <div class="jumbotron">
             <fieldset>
-            <legend>ブックマーク詳細</legend>
-                <label>名前： <p><?= $result['name'] ?></p> </label><br>
-                <label>Email： <p> <?= $result['url'] ?></p> </label><br>
-                <label>感想: <p> <?= $result['comment'] ?></p></label><br>
+            <legend>記事</legend>
+                <label>タイトル： <p><?= $result['name'] ?></p> </label><br>
+                <label>本文: <p> <?= $result['comment'] ?></p></label><br>
                 <input type="hidden" name="id" value="<?= $result['id'] ?>">
+                <div class="container-fluid">
+                <div id="photarea">
+                <?= $viewimg ?>
+                </div>
+                </div>
             </fieldset>
         </div>
+
     </form>
 </body>
 

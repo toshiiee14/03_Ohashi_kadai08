@@ -43,7 +43,7 @@ if($status==false) {
     $view .= '</a>';
     if ($kanri_flg == 1) {  
     $view .= '<a href="delete.php?id=' . $result['id'] . '">';//追記
-    $view .= '  [削除]';//追記
+    $view .= '  [Delete]';//追記
     $view .= '</a>';//追記
     };
     $view .= '</p>';
@@ -57,7 +57,7 @@ if($status==false) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ブックマーク一覧</title>
+<title>記事一覧</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -67,8 +67,8 @@ if($status==false) {
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">トップページへ</a>
-      <p class="navbar-brand">(サイトオーナーのみ削除可能)</p>
+      <a class="navbar-brand" href="index.php">Top Page</a>
+      <p class="navbar-brand">(Delete for Only Logged In Users)</p>
       <p class="navbar-brand"> <?= $user_name?> </p>
       </div>
     </div>

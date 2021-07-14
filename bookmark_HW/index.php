@@ -12,26 +12,28 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">ブックマーク一覧 編集</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="bm_list_viewonly.php">ブックマーク一覧 閲覧のみ</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="login.php">ログイン</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="logout.php">ログアウト</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="user_index.php">ユーザー登録</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">All Articles - edit</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="bm_list_viewonly.php">All Articles - view only</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="login.php">Login</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="logout.php">Logout (you will be sent to login form after automatically logged out)</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="user_index.php">Sign Up</a></div>
     </div>
   </nav>
 </header>
 <!-- Head[End] -->
 
 <!-- Main[Start] -->
-<form method="POST" action="insert.php">
+<form method="POST" action="insert.php" enctype="multipart/form-data">
   <div class="contents">
    <fieldset>
-    <legend>新規登録 (ユーザー登録又はログイン必要)</legend>
-     <label>書籍名：<input type="text" name="name"></label><br>
-     <label>書籍URL：<input type="text" name="url"></label><br>
-     <label>書籍コメント：<br>
+    <legend>POST NEW ARTICLE (Required to Login)</legend>
+     <label>Title：<input type="text" name="name"></label><br>
+     <label>Texts：<br>
      <textArea name="comment" rows="4" cols="40"></textArea></label><br>
-     <input type="submit" value="送信">
+     <p>Upload your photo</p>
+                <!-- multipart/form-dataという形式を指定しあげる必要有 / png, ipegのみ等指定可能-->
+                <input type="file" name="upfile">
+     <input type="submit" value="POST">
    </fieldset>
   </div>
 </form>

@@ -12,10 +12,9 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">ブックマーク一覧</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="login.php">ログイン</a></div>
-    <div class="navbar-header"><a class="navbar-brand" href="logout.php">ログアウト</a></div><!-- ここを追記 -->
-    <div class="navbar-header"><a class="navbar-brand" href="user_index.php">ユーザー登録</a></div><!-- ここを追記 -->
+    <div class="navbar-header"><a class="navbar-brand" href="bm_list_viewonly.php">All Articles - view only</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="login.php">Login</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="logout.php">Logout</a></div><!-- ここを追記 -->
     </div>
   </nav>
 </header>
@@ -25,15 +24,15 @@
 <form method="POST" action="user_insert.php">
   <div class="jumbotron">
    <fieldset>
-    <legend>ユーザー登録</legend>
-     <label>名前：<input type="text" name="name"></label><br>
-     <label>lid：<input type="text" name="lid"></label><br>
-     <label>lpw：<input type="text" name="lpw"></label><br>
-     <label>区分：<select name="kanri_flg" id="">
-     <option value="0">通常管理者</option>
-     <option value="1">サイトオーナー</option>
+    <legend>Sign Up</legend>
+     <label>name：<input type="text" name="name"></label><br>
+     <label>Id：<input type="text" name="lid"></label><br>
+     <label>PW：<input type="text" name="lpw"></label><br>
+     <label>Authority：<select name="kanri_flg" id="">
+     <option value="0">user</option>
+     <option value="1">owner</option>
      </select></label><br>
-     <input type="submit" value="送信">
+     <input type="submit" value="SEND">
     </fieldset>
   </div>
 </form>

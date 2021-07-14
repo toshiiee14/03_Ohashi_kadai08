@@ -11,10 +11,10 @@ function h($str)
 function db_conn()
 {
     try {
-        // $db_name = "gs_bm";    //データベース名
-        // $db_id   = "root";      //アカウント名
-        // $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。
-        // $db_host = "localhost"; //DBホスト
+        $db_name = "gs_bm";    //データベース名
+        $db_id   = "root";      //アカウント名
+        $db_pw   = "root";      //パスワード：XAMPPはパスワード無しに修正してください。
+        $db_host = "localhost"; //DBホスト
 
         // sakura server用（gitにアップするときは削除する！）
       

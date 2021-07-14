@@ -17,9 +17,12 @@ $view = '';
 if ($status == false) {
     sql_error($status);
 } else {
-    $result = $stmt->fetch();
-}
+    $result = $stmt->fetch(PDO::FETCH_BOTH);
+    $viewimg .= '<img src = "upload/'.$result["img"].'"></p>';
+    };
+
 ?>
+
 
 <!-- 以下はindex.phpのHTMLをまるっと持ってくる -->
 <!DOCTYPE html>
@@ -27,6 +30,8 @@ if ($status == false) {
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>データ登録</title>
     <style>
         div {
@@ -40,24 +45,39 @@ if ($status == false) {
     <header>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">データ一覧</a></div>
+                <div class="navbar-header"><a class="navbar-brand" href="bm_list_view.php">記事一覧</a></div>
             </div>
         </nav>
     </header>
 
     <!-- method, action, 各inputのnameを確認してください。  -->
-    <form method="POST" action="bm_update_view.php">
+    <form method="POST" action="bm_update_view.php" enctype="multipart/form-data">
         <div class="jumbotron">
             <fieldset>
-            <legend>ブックマーク詳細</legend>
-                <label>名前：<input type="text" name="name" value="<?= $result['name'] ?>"></label><br>
-                <label>Email：<input type="text" name="url" value="<?= $result['url'] ?>"></label><br>
-                <label><textarea name="comment" rows="4" cols="40"><?= $result['comment'] ?></textarea></label><br>
+            <legend>記事詳細</legend>
+                <label>タイトル：<input type="text" name="name" value="<?= $result['name'] ?>"></label><br>
+                <label>本文: <br><textarea name="comment" rows="4" cols="40"><?= $result['comment'] ?></textarea></label><br>
+                <div class="container-fluid">
+                <div id="photarea">
+                <?= $viewimg ?>
+                </div>
+                </div>
+               
+                <p>写真を変更</p>
+            
+                <!-- multipart/form-dataという形式を指定しあげる必要有 / png, ipegのみ等指定可能-->
+                <input type="file" name="upfile" > 
                 <input type="hidden" name="id" value="<?= $result['id'] ?>">
+
                 <input type="submit" value="更新">
             </fieldset>
         </div>
-    </>
+        <div class="container-fluid">
+                <div id="photarea">
+                <?= $view ?>
+                </div>
+                </div>
+                </form>
 </body>
 
 </html>

@@ -46,7 +46,7 @@ if($status==false) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ブックマーク一覧</title>
+<title>記事一覧</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -56,7 +56,7 @@ if($status==false) {
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-      <a class="navbar-brand" href="index.php">トップページへ</a>
+      <a class="navbar-brand" href="index.php">Top Page</a>
       </div>
     </div>
   </nav>

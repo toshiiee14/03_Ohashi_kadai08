@@ -13,11 +13,11 @@
 <header>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand" href="index.php">トップページ</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="index.php">Top Page</a></div>
     </div>
   </nav>
 </header>
-<h2>ログインフォーム</h2>
+<h2>Login Form</h2>
 <!-- lLOGINogin_act.php は認証処理用のPHPです。 -->
 <form name="form1" action="login_act.php" method="post">
 ID:<input type="text" name="lid" />
